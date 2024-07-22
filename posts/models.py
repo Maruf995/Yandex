@@ -17,7 +17,7 @@ class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
     rating = models.ManyToManyField('Rating', related_name='posts', blank=True)
     comment = models.ManyToManyField(Comment,related_name='posts', blank=True)
-
+                                   
     def average_rating(self):
         ratings = self.ratings.all()
         if ratings:
